@@ -1,0 +1,92 @@
+exercise 4:
+
+URL: https://mermaid.live/edit#pako:eNq9VE2P0zAQ_SuWz22aOE2a5rAXWIEQ7K7UniAIufYkMZvYwXa6W6r-9530S2L5EAVETpk3nnnPz_ZsqTASaE4dfOlBC3ipeGV5W-iOW6-E6rj2ZGXNgwP7LYjAesAKfUyPr64OWE7ubhdLUnvfuXwycb6XClwgXFBD45S-V0GpJvDI264B3nUTDQ-ftPFQaIIfF16tuYczwwAe_sfIcWTLyevl8o7EITsskPBd3Y-Uvbq-SBiKcpeqeveWSCP6FrT_hbQh8bfyWq40pi9U6GsgWERK1cD_EPj5D_S94Wu-EFZ1_ndk3uAxEauq2hNTknOjJTY6BsR5vLqOwCOI3itdPWcZngFiHPnAixrcYcHi9oaU1rT76N96I7nn6I3Rl7nzYUsKfLTaD9eL5hjsb5zCvXG3KegIEWwNhxwLWTyOxlFByW5EgiAgH3_iJR3RyipJc297GNEWLB4ehnQ7FBQUDWiPTSW39wUt9A5rcBS8N6Y9lVnTVzXNS944jPpuUHIcKc_Qa6m8sWeQ994sNlqcGjWGSxSVb6nfdMOAqpTzyIc7L1U14L1tED75PaSDSvm6XwXCtBOnZI0nXq_n6SRlacZZDOks5kkcS7GK5lnJplEpZ2HEON3tUDloJHxheu1pzqJ4v7WB55HmcZgEs9k0Y4xFWcLmbDaiG5onUZCEWRrFWZaGCQvDKfb5uncjDLIojJM4SubzcDrNdk_hjde0
+
+Mermaid code:
+
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: HTTP 302
+    deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate server
+
+
+exercise 5:
+
+URL: https://mermaid.live/edit#pako:eNqtVE2P0zAQ_SuWz63znSY57AVWIATLoXtiw8G1ncRsYgfbKS1V_zvjpq0ESKwqNqfMezNvXsbjHDDTXOAKW_F9EoqJt5K2hg61GqlxksmRKoc2Rv-wwvwOArD1WK3O9PLubsYq9O7-EXXOjbYKAusmLoUlzJJO9FaqZ0kaGYgdHcZe0HEM7Ei9DIKHMie31Imrugfn9yXonztV6P3jp4-IazYNQrk5i4u_iv_f2kClAtre6s91AkEZamQv_mHPE68wPfLtavBGjx_olq6ZkaN7yepMPWgAjWw7h3SDrlKPIHUOkHWwJBaJnWCTk6r9s49fOMAodBSOdcLOCevPD6gxejhFrzshTp0fkVa3nuLTAdVwQZTzS4YrCE57J-HrqN3XeAEIiIuZi8M4WUbLqMbouECEEPT1haPHC9wayXHlzCQWeBAG9g1CfPB8jWEUw1mcU_Nc41odoQau3xeth0uZ0VPb4aqhvYVoGr2j8zW-pMzgPZdOm2smnZxe7xW7JPWacgH0Abv96P8JrbQO2sEAGtl6fDI9wJfBe5q00nXThjA9BFbyDo6-25Z5kMd5QeNE5KuEZknC2SYqiyZOo4avwiim-HgE40JBwzd6Ug5X5em7fJcdruJ8RVarNM_TOE7itEgXeI-rvCRZWORJWoZ5Fq-yHDR-ngYRkiIKkyyJsrIM07Q4_gIeb6UUMermaid code:
+
+Mermaid code:
+
+sequenceDiagram
+participant browser
+participant server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
+    activate server
+    server-->>browser: the css file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+
+       activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+
+
+    Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+
+    activate server
+    server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+    deactivate server
+
+exercise 6:
+
+URL: https://mermaid.live/edit#pako:eNplUctu2zAQ_BWCZ1dPU69DLm0vPSQFnFMhIKCplUREIlVy5dg1_O9dWVECtAIP2pnhzu7wypVtgFfcw-8ZjIJvWnZOjrVh9E3SoVZ6kgbZ0dk3D-5_gsDTgq_Mu-zLw8OKV-zn0-GZ9YiTr8LQ49xo8IHyQQ-D1-ZVB60O4SzHaQA5TaGBtxdjEV78JNeWUqE-SYQPJ7bi7JFkzOmuR2bbzblizz1sBfNIk3oGZ1AzatMxJPKHPMmDcnpCtmxPmETWAqoe_Co4PD2y1tnxXn0uyHe8c7rhFboZdnwEN8ql5NdlopqTeoSaV_TbSPda89rc6A7F9Mvacbvm7Nz1vGrl4Kmap4Z2e4_9H_R7o9G6D1DOaA8Xo7ZGg5UNEH3leJmWR-y0R_JT1rS6W_DZDQRv4S900Gns52Og7Bh63fQUT38qszBLskImKWR5KkWaNuoYl0Wb7OO2yaM4kfx2o8nBkOFXOxvkVSzK-2qLz5lXqSgCkeQiF3s6ZV7s-IVEURwkRZwVIidBKcqS2vy5hxEFuYj2RSJEmUR7Ema3vxC72XM
+ 
+Mermaid code:
+
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+ 
+     Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
+
+
+    

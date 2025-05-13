@@ -20,6 +20,13 @@ const App = () => {
     const toAdd = bad;
     setBad(toAdd + 1);
   };
+  const handleOperationGood = () => good;
+  const handleOperationNeutral = () => neutral;
+  const handleOperationBad = () => bad;
+  const handleOperationAll = () => bad + good + neutral;
+  const handleOperationAverage = () => (-1 * bad + good) / 9;
+  const handleOperationPositive = () => good / handleOperationAll();
+
   return (
     <>
       <Title title={title1} />
@@ -27,9 +34,12 @@ const App = () => {
       <Button text="neutral" onClick={handleNeutralClick} />
       <Button text="bad" onClick={handleBadClick} />
       <Title title={title2} />
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
+      <Other text="good" operation={handleOperationGood()} />
+      <Other text="neutral" operation={handleOperationNeutral()} />
+      <Other text="bad" operation={handleOperationBad()} />
+      <Other text="all" operation={handleOperationAll()} />
+      <Other text="average" operation={handleOperationAverage()} />
+      <Other text="positive" operation={handleOperationPositive()} />
     </>
   );
 };
@@ -37,5 +47,11 @@ const App = () => {
 const Title = ({ title }) => <h1>{title}</h1>;
 
 const Button = ({ text, onClick }) => <button onClick={onClick}>{text}</button>;
+
+const Other = ({ text, operation }) => (
+  <p>
+    {text} {operation}
+  </p>
+);
 
 export default App;

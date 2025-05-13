@@ -23,9 +23,6 @@ const App = () => {
   const handleOperationGood = () => good;
   const handleOperationNeutral = () => neutral;
   const handleOperationBad = () => bad;
-  const handleOperationAll = () => bad + good + neutral;
-  const handleOperationAverage = () => (-1 * bad + good) / 9;
-  const handleOperationPositive = () => good / handleOperationAll();
 
   return (
     <>
@@ -37,9 +34,7 @@ const App = () => {
       <Other text="good" operation={handleOperationGood()} />
       <Other text="neutral" operation={handleOperationNeutral()} />
       <Other text="bad" operation={handleOperationBad()} />
-      <Other text="all" operation={handleOperationAll()} />
-      <Other text="average" operation={handleOperationAverage()} />
-      <Other text="positive" operation={handleOperationPositive()} />
+      <Statistics props={{ bad, good, neutral }} />
     </>
   );
 };
@@ -54,4 +49,27 @@ const Other = ({ text, operation }) => (
   </p>
 );
 
+const Statistics = ({ props }) => {
+  const handleOperationAll = () => props.bad + props.good + props.neutral;
+  const handleOperationAverage = () => (-1 * props.bad + props.good) / 9;
+  const handleOperationPositive = () => props.good / handleOperationAll();
+  return (
+    <>
+      <InsideStatisticsComponent text="all" operation={handleOperationAll()} />
+      <InsideStatisticsComponent
+        text="average"
+        operation={handleOperationAverage()}
+      />
+      <InsideStatisticsComponent
+        text="positive"
+        operation={handleOperationPositive()}
+      />
+    </>
+  );
+};
+const InsideStatisticsComponent = ({ text, operation }) => (
+  <p>
+    {text} {operation}
+  </p>
+);
 export default App;

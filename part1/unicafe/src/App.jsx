@@ -31,10 +31,17 @@ const App = () => {
       <Button text="neutral" onClick={handleNeutralClick} />
       <Button text="bad" onClick={handleBadClick} />
       <Title title={title2} />
-      <Other text="good" operation={handleOperationGood()} />
-      <Other text="neutral" operation={handleOperationNeutral()} />
-      <Other text="bad" operation={handleOperationBad()} />
-      <Statistics props={{ bad, good, neutral }} />
+
+      {bad + good + neutral === 0 ? (
+        <p>No feedback given</p>
+      ) : (
+        <>
+          <Other text="good" operation={handleOperationGood()} />
+          <Other text="neutral" operation={handleOperationNeutral()} />
+          <Other text="bad" operation={handleOperationBad()} />
+          <Statistics props={{ bad, good, neutral }} />
+        </>
+      )}
     </>
   );
 };
